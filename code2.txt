@@ -1,0 +1,23 @@
+from datetime import datetime
+init(autoreset=True)
+spinner_running = False
+ping_result = "Checking..."
+initial_check_state = "pending"
+user_location_info = "Locating System..."
+websites_to_check = [
+        "https://google.com", "https://github.com", "https://python.org",
+        "https://wikipedia.org", "https://reddit.com", "https://microsoft.com",
+        "https://apple.com", "https://netflix.com", "https://roblox.com", "https://chess.com", "https://instagram.com", "https://lichess.org", "https://prorealtime.com" 
+    ]
+list_lock=threading.Lock()
+def hide_cursor():
+    sys.stdout.write("\033[?25l")
+    sys.stdout.flush()
+def show_cursor():
+    sys.stdout.write("\033[?25h")
+    sys.stdout.flush()
+def getwidth():
+    try:
+        return os.get_terminal_size().columns
+    except Exception:
+        return 80

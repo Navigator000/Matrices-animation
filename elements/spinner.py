@@ -31,7 +31,7 @@ def spinner(text, color=Fore.YELLOW):
 
 hidecursor()
 
-with spinner(Fore.YELLOW+"Connecting to PBS07"):
+with spinner(Fore.YELLOW+"Connecting to PBS07"): #pretty obvious
     time.sleep(0.5)
 print(Fore.GREEN+"Connected!")
 

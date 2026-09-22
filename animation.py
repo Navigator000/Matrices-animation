@@ -1,20 +1,24 @@
 # main animation page where everything is loaded together
+#tbh this is a very lazy and messy way of doing it but WHO cares it works
 import sys
 import time
 import os
 from elements.cursor import showcursor, hidecursor
+from elements.rendering_engine import clear
+
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
-CLEAR_SCREEN = "\033[H\033[J" # '\033[H' moves cursor to the top-left; '\033[J' clears everything below it
 
 input()
 
-sys.stdout.write(CLEAR_SCREEN)
+clear()
 import song
 
 import elements.spinner
-sys.stdout.write(CLEAR_SCREEN)
+clear()
 import elements.UI
-time.sleep(0.1)
-sys.stdout.write(CLEAR_SCREEN)
+time.sleep(0.3)
+clear()
 hidecursor()
-import elements.intro
+from elements.intro import TerminalIntro
+intro=TerminalIntro()
+intro.play()

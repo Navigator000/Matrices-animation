@@ -10,10 +10,9 @@
 import time
 import sys
 from colorama import Fore,Style
-from elements.cursor import showcursor, hidecursor
+from elements.cursor import showcursor
 
-# --- Define the raw scrolling artwork layer ---
-# FIX: Added 'r' to prevent Pylance errors and shortened by 1 line
+
 mountain_canvas = [
     r"      /\                                      /\                               /\           ", #<--- beautiful mountains that will autoscroll above the text
     r"     /  \  /\                  /\            /  \      /\                     /  \/\        ",
@@ -22,7 +21,7 @@ mountain_canvas = [
 ]
 
 
-def draw_scrolling_background(offset):
+def draw_scrolling_background(offset): #ok im gonna be fr here i have 0 clue how this works i wrote this like weeks ago with 0 documentation so i genuinely cannot explain to you how this works
     sys.stdout.write(Fore.WHITE + Style.DIM)
     for i, line in enumerate(mountain_canvas):
         start_pos = offset % len(line)
@@ -93,7 +92,7 @@ def typewriter(text, delay=0.075, color=Fore.BLUE): #the subtitles will be out o
                 ("Precipitation:", "???"),
                 ("AVG wind speed:", "??mph")
             ]
-                for index, (label, value) in enumerate(weatherinfo, start=13): #prints weather info cleanly
+                for index, (label, value) in enumerate(weatherinfo, start=13): #prints weather info 
                     sys.stdout.write(f"\033[{index};100H")
                     print(f"{Fore.BLUE}{label} {Style.RESET_ALL}{value}")
                 return

@@ -1,0 +1,37 @@
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    // Reuse HttpClient to prevent socket exhaustion bugs
+    private static readonly HttpClient client = new HttpClient 
+    { 
+        Timeout = TimeSpan.FromSeconds(15) 
+    };
+
+    static async Task Main()
+    {
+        string url = "https://github.com";
+
+        try
+        {
+            // Manage connection life by awaiting the network call
+            HttpResponseMessage response = await client.GetAsync(url);
+            
+            // Throws an exception if the HTTP status code is a failure
+            response.EnsureSuccessStatusCode(); 
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+            Console.WriteLine("Connection successful!");
+        }
+        catch (HttpRequestException e)
+        {
+            Console.WriteLine($"Network Connection Error: {e.Message}");
+        }
+        catch (TaskCanceledException e)
+        {
+            Console.WriteLine($"Connection timed out: {e.Message}");
+        }
+    }
+}
