@@ -11,7 +11,9 @@ import time
 import sys
 from colorama import Fore,Style
 from elements.cursor import showcursor
+import threading
 
+mountain_stop_event = threading.Event()
 
 mountain_canvas = [
     r"      /\                                      /\                               /\           ", #<--- beautiful mountains that will autoscroll above the text
@@ -21,7 +23,7 @@ mountain_canvas = [
 ]
 
 
-def draw_scrolling_background(offset): #ok im gonna be fr here i have 0 clue how this works i wrote this like weeks ago with 0 documentation so i genuinely cannot explain to you how this works
+def draw_scrolling_background(offset): #ok im gonna be fr here
     sys.stdout.write(Fore.WHITE + Style.DIM)
     for i, line in enumerate(mountain_canvas):
         start_pos = offset % len(line)
@@ -29,6 +31,13 @@ def draw_scrolling_background(offset): #ok im gonna be fr here i have 0 clue how
         sys.stdout.write(f"\033[{4 + i};1H{frame_slice}")
     sys.stdout.write(Style.RESET_ALL)
 
+def background_mountain_loop():
+    bg_offset = 0
+    while not mountain_stop_event.is_set():
+        draw_scrolling_background(bg_offset)
+        bg_offset += 1
+        time.sleep(0.1)
+        
 sys.stdout.write("\033[1;58H") 
 print("WEATHER STATION REPORT")
 sys.stdout.write("\033[2;54H") 
@@ -66,7 +75,6 @@ def typewriter(text, delay=0.075, color=Fore.BLUE): #the subtitles will be out o
 
     current_row = 10 #text position start
     current_col = 1
-    bg_offset = 0 
 
     for word in words:
         if current_col + len(word) > 90:
@@ -74,9 +82,6 @@ def typewriter(text, delay=0.075, color=Fore.BLUE): #the subtitles will be out o
             current_col = 1
 
         for char in word:
-            draw_scrolling_background(bg_offset)
-            bg_offset += 1 
-            
             sys.stdout.write(f"\033[{current_row};{current_col}H")
             
             print(color+char, end="", flush=True)
@@ -97,15 +102,13 @@ def typewriter(text, delay=0.075, color=Fore.BLUE): #the subtitles will be out o
                     print(f"{Fore.BLUE}{label} {Style.RESET_ALL}{value}")
                 return
             
-        draw_scrolling_background(bg_offset)
-        bg_offset += 1
         sys.stdout.write(f"\033[{current_row};{current_col}H")
         print(" ", end="", flush=True)
         current_col += 1
         
         clean_word = word.lower().strip(".,;:!?")
 
-        if clean_word in trigger_words: #do note that as this loop runs, EVERYTHING gets paused. this is intentional
+        if clean_word in trigger_words: 
             current_row += 1
             current_col = 1
             if clean_word!="22nd" and clean_word!="25mph" and clean_word!="sunny":
@@ -122,4 +125,12 @@ text="media/credits.txt"
 with open(text, 'r') as f:
     raw=f.read()
     filecont=" ".join(raw.split())
+    
+    mountain_stop_event.clear()
+    mountain_thread = threading.Thread(target=background_mountain_loop, daemon=True)
+    mountain_thread.start()
+    
     typewriter(filecont)
+    
+    mountain_stop_event.set()
+    mountain_thread.join()

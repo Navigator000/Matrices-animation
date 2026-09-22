@@ -19,6 +19,8 @@ import elements.UI
 time.sleep(0.3)
 clear()
 hidecursor()
+
 from elements.intro import TerminalIntro
+
 intro=TerminalIntro()
 intro.play()

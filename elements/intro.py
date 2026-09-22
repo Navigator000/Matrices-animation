@@ -4,7 +4,7 @@
 import sys
 import time
 from colorama import Fore, Style
-from rendering_engine import clear
+from elements.rendering_engine import clear
 
 lines = [
     r" __  __    _  _____ ____  ___  ____ _____ ____  ",
@@ -24,6 +24,11 @@ class TerminalIntro: #too many functions so i made a class to keep it organized
         self.start_row = start_row
         self.column = column
         self.text = f"{Fore.BLUE}Running pure python 6.11 in the Command Line"
+        self.ASCII_LINES = lines 
+
+    def clear(self):
+        # This bridges the class calls directly to your global rendering engine import
+        clear()
 
     def draw_ascii(self): 
         for i, line in enumerate(self.ASCII_LINES):
