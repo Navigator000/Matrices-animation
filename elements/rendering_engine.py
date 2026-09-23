@@ -43,7 +43,7 @@ def right(text): #same same except youknow, right
     render(x_right, y_right, text)
 
 def top_left(text):
-    render(1, 1, text)
+    render(2, 2, text)
 
 def top_right(text):
     columns, lines = getsize()

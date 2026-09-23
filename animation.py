@@ -24,3 +24,6 @@ from elements.intro import TerminalIntro
 
 intro=TerminalIntro()
 intro.play()
+clear()
+import elements.main
+
