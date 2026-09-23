@@ -41,13 +41,18 @@ class TerminalIntro: #too many functions so i made a class to keep it organized
         try:
             with open(filename, 'r', encoding="utf-8") as f:
                 for line in f:
-                    if line.strip() != trigger_text:
+                    if trigger_text != None:
+                        if line.strip() != trigger_text:
+                            print(Fore.GREEN + line, end="")
+                            time.sleep(0.05)
+                        else:
+                            self.clear()
+                            print(Style.RESET_ALL)
+                            break
+                    else:
                         print(Fore.GREEN + line, end="")
                         time.sleep(0.05)
-                    else:
-                        self.clear()
-                        print(Style.RESET_ALL)
-                        break
+
         except FileNotFoundError: #this is for when some idiot clones the repo and tries to modify the file without understanding the tree
             print(f"{Fore.RED}Error: {filename} not found.{Style.RESET_ALL}")
             time.sleep(1)
@@ -70,7 +75,7 @@ class TerminalIntro: #too many functions so i made a class to keep it organized
         print(self.text, Style.RESET_ALL)
         sys.stdout.write("\033[14;39H")
         print("A project by Navigator0")
-        time.sleep(1.2)
+        time.sleep(1.6)
         self.clear()
 
     def play(self):
@@ -81,3 +86,4 @@ class TerminalIntro: #too many functions so i made a class to keep it organized
         self.simulate_code_run("code2.txt", "def getwidth():")
         
         self.show_screen_three()
+        self.simulate_code_run("code3.txt", None)

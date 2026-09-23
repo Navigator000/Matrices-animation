@@ -89,11 +89,3 @@ def spinner(text, color=Fore.YELLOW):
         thread.join()
         sys.stdout.write("\r" + " " * (len(text) + 2) + "\r") #clears the text when its period is over
         sys.stdout.flush()
-
-getsize()
-
-clear()
-render(10,4, "Hello!")
-center("Hello!")
-left("Hello!")
-right("Hello!")
