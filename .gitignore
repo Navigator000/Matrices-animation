@@ -1,11 +1,5 @@
-__pycache__/
-*.py[cod]
-*$py.class__pycache__/
+# Python bytecode
+**/__pycache__/
 *.pyc
-__pycache__/
-*.pyc
-elements/__pycache__/cursor.cpython-311.pyc
-elements/__pycache__/cursor.cpython-311.pyc
-elements/__pycache__/intro.cpython-311.pyc
-elements/__pycache__/spinner.cpython-311.pyc
-elements/__pycache__/UI.cpython-311.pyc
+*.pyo
+*.pyd
