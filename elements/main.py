@@ -14,7 +14,7 @@ with open(json_path, "r", encoding="utf-8") as file:
     data = json.load(file)
 txt1 = data["plaintext"]
 
-lines = txt1.splitlines()
+lines = [txt1[str(i)] for i in range(len(txt1))]
 
 with spinner(""):
     time.sleep(2)
@@ -41,5 +41,4 @@ for line in lines:
     else:
         print()  # Print a blank line for empty lines
 clear()
-
 

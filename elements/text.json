@@ -1,3 +1,17 @@
 {
-    "plaintext": "Matrices are mathematical tools that are used for various purposes, including but not limited to:\n- Cryptography\n- Computer Graphics\n- Data Analysis\n- Machine Learning\n- Scientific Computing\n..and more.\n\nMatrices can be represented in various forms, such as 2D arrays, 3D arrays, and higher-dimensional arrays.\nThey can also be manipulated using various mathematical operations, such as addition, subtraction, multiplication, and inversion.\nFinally...\n"
+    "plaintext": {
+        "0": "Matrices are mathematical tools that are used for various purposes, including but not limited to:",
+        "1": "- Cryptography",
+        "2": "- Computer Graphics",
+        "3": "- Data Analysis",
+        "4": "- Machine Learning",
+        "5": "- Scientific Computing",
+        "6": "..and more.",
+        "7": "",
+        "8": "Matrices can be represented in various forms, such as 2D arrays, 3D arrays, and higher-dimensional arrays.",
+        "9": "They can also be manipulated using various mathematical operations, such as addition, subtraction, multiplication, and inversion.",
+        "10": "Furthermore, matrices can be used to represent linear transformations, which are fundamental in many areas of mathematics and physics.",
+        "11": "",
+        "12": "Let's take a look at some of them, shall we?"
+    }
 }
