@@ -27,7 +27,6 @@ class TerminalIntro: #too many functions so i made a class to keep it organized
         self.ASCII_LINES = lines 
 
     def clear(self):
-        # This bridges the class calls directly to your global rendering engine import
         clear()
 
     def draw_ascii(self): 
