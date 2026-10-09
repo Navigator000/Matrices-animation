@@ -80,10 +80,10 @@ class TerminalIntro: #too many functions so i made a class to keep it organized
 
     def play(self):
         self.show_screen_one()
-        self.simulate_code_run("code.txt", "// Throws an exception if the HTTP status code is a failure")
+        self.simulate_code_run("Matrices-animation/code.txt", "// Throws an exception if the HTTP status code is a failure")
         
         self.show_screen_two()
-        self.simulate_code_run("code2.txt", "def getwidth():")
+        self.simulate_code_run("Matrices-animation/code2.txt", "def getwidth():")
         
         self.show_screen_three()
-        self.simulate_code_run("code3.txt", None)
+        self.simulate_code_run("Matrices-animation/code3.txt", None)

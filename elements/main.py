@@ -10,11 +10,11 @@ import sys
 
 json_path = Path(__file__).resolve().parent / "text.json"
 
-with open(json_path, "r", encoding="utf-8") as file:
+with open(json_path, "r", encoding="utf-8") as file: #parse json file
     data = json.load(file)
 txt1 = data["plaintext"]
 
-lines = [txt1[str(i)] for i in range(len(txt1))]
+lines = [txt1[str(i)] for i in range(len(txt1))] #get each line from the json file and store it in a list
 
 with spinner(""):
     time.sleep(2)
@@ -41,4 +41,8 @@ for line in lines:
     else:
         print()  # Print a blank line for empty lines
 clear()
+
+with spinner("Reconnecting.."):
+    time.sleep(2)
+
 

@@ -121,7 +121,7 @@ def typewriter(text, delay=0.075, color=Fore.BLUE): #the subtitles will be out o
                 pass
 
 sys.stdout.write("\033[10;1H") #this reads the file contents present in media. in the file you will find the entire file
-text="media/credits.txt"
+text="Matrices-animation/media/credits.txt"
 with open(text, 'r') as f:
     raw=f.read()
     filecont=" ".join(raw.split())
