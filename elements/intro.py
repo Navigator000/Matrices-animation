@@ -27,7 +27,6 @@ class TerminalIntro: #too many functions so i made a class to keep it organized
         self.ASCII_LINES = lines 
 
     def clear(self):
-        # This bridges the class calls directly to your global rendering engine import
         clear()
 
     def draw_ascii(self): 
@@ -86,4 +85,8 @@ class TerminalIntro: #too many functions so i made a class to keep it organized
         self.simulate_code_run("Matrices-animation/code2.txt", "def getwidth():")
         
         self.show_screen_three()
+<<<<<<< HEAD
         self.simulate_code_run("Matrices-animation/code3.txt", None)
+=======
+        self.simulate_code_run("code3.txt", None)
+>>>>>>> 56dd26943cfd8f08c331d02d5418c654f47acbd8
