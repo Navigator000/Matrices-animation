@@ -12,7 +12,8 @@ Matrices can be represented in various forms, such as 2D arrays, 3D arrays, and 
 They can also be manipulated using various mathematical operations, such as addition, subtraction, multiplication, and inversion.
 Furthermore, matrices can be used to represent linear transformations, which are fundamental in many areas of mathematics and physics.
 
-Let's take a look at some of them, shall we?
+For this one, we'll be taking a look at ONE field in particular:
+CRYPTOGRAPHY
 """
 
 lines = plaintext.splitlines()
