@@ -4,15 +4,8 @@
         "1": "- Cryptography",
         "2": "- Computer Graphics",
         "3": "- Data Analysis",
-        "4": "- Machine Learning",
-        "5": "- Scientific Computing",
-        "6": "..and more.",
-        "7": "",
-        "8": "Matrices can be represented in various forms, such as 2D arrays, 3D arrays, and higher-dimensional arrays.",
-        "9": "They can also be manipulated using various mathematical operations, such as addition, subtraction, multiplication, and inversion.",
-        "10": "Furthermore, matrices can be used to represent linear transformations, which are fundamental in many areas of mathematics and physics.",
-        "11": "",
-        "12": "For this one, we'll be taking a look at ONE field in particular:",
-        "13": "CRYPTOGRAPHY"
+        "4": "...among others.",
+        "5": "For this animation, we'll take a look at one field in particular:",
+        "6": "CRYPTOGRAPHY."
     }
 }

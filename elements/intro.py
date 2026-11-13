@@ -16,14 +16,12 @@ lines = [
 start_row = 17
 column = 45 #this part is for a bit later, i'm gonna need this once I build the next class for another part
 
-text=(Fore.BLUE+"Running pure python 3.11 in the Command Line")
-
 class TerminalIntro: #too many functions so i made a class to keep it organized
 
     def __init__(self, start_row=17, column=45):  #this is the initialization of the class, it sets up the starting row and column for the ASCII art and text
         self.start_row = start_row
         self.column = column
-        self.text = f"{Fore.BLUE}Running pure python 6.11 in the Command Line"
+        self.text = f"{Fore.BLUE}Running pure python 3.11 in the Command Line"
         self.ASCII_LINES = lines 
 
     def clear(self):

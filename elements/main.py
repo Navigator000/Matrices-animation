@@ -14,8 +14,9 @@ with open(json_path, "r", encoding="utf-8") as file: #parse json file
     data = json.load(file)
 txt1 = data["plaintext"]
 
-lines = [txt1[str(i)] for i in range(len(txt1))] #get each line from the json file and store it in a list
-
+lines = {i: txt1[str(i)] for i in range(len(txt1))} #get each line from the json file and store it in a list
+print(lines)
+time.sleep(1000)
 with spinner(""):
     time.sleep(2)
 
@@ -44,5 +45,6 @@ clear()
 
 with spinner("Reconnecting.."):
     time.sleep(2)
+
 
 

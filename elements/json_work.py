@@ -4,16 +4,9 @@ plaintext = """Matrices are mathematical tools that are used for various purpose
 - Cryptography
 - Computer Graphics
 - Data Analysis
-- Machine Learning
-- Scientific Computing
-..and more.
-
-Matrices can be represented in various forms, such as 2D arrays, 3D arrays, and higher-dimensional arrays.
-They can also be manipulated using various mathematical operations, such as addition, subtraction, multiplication, and inversion.
-Furthermore, matrices can be used to represent linear transformations, which are fundamental in many areas of mathematics and physics.
-
-For this one, we'll be taking a look at ONE field in particular:
-CRYPTOGRAPHY
+...among others.
+For this animation, we'll take a look at one field in particular:
+CRYPTOGRAPHY.
 """
 
 lines = plaintext.splitlines()
