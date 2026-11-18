@@ -1,6 +1,4 @@
-from itertools import count
 import json
-from turtle import goto
 from elements.rendering_engine import *
 lazy import random
 from colorama import Fore, Back, Style
@@ -60,6 +58,9 @@ def printErrorLogs(text):
     for line in text:
         print(f"{Fore.RED}Error: {line}{Style.RESET_ALL}")
     return
+
+def weatherStation():
+    
 
 for line in lines:
     if line.strip():
