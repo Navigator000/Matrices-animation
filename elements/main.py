@@ -1,16 +1,18 @@
+from itertools import count
 import json
+from turtle import goto
 from elements.rendering_engine import *
-import random
-import colorama
-import string
-import time
-import threading
+lazy import random
+from colorama import Fore, Back, Style
+lazy import string
+lazy import time
+lazy import threading
 from pathlib import Path
-import sys
+lazy import sys
 
-json_path = Path(__file__).resolve().parent / "text.json"
+json_path1 = Path(__file__).resolve().parent / "text.json"
 
-with open(json_path, "r", encoding="utf-8") as file: #parse json file
+with open(json_path1, "r", encoding="utf-8") as file: #parse json file
     data = json.load(file)
 txt1 = data["plaintext"]
 
@@ -25,7 +27,6 @@ clear()
 def decrypt(txt, speed):
     pool = string.ascii_letters + string.digits + "!@#$"
     for i in range(len(txt) + 1):
-        
         revealed = txt[:i]
         remaining_length = len(txt) - i
         remaining_text = txt[i:]
@@ -33,6 +34,32 @@ def decrypt(txt, speed):
         sys.stdout.write("\r" + revealed + scrambled)
         sys.stdout.flush()
         time.sleep(speed)
+    return
+
+def isConnected(connectionID):
+    if connectionID == "PBS07_BACKUP":
+        return True
+    else:
+        return False
+
+def checkConnection(connectionID):
+    with spinner("Checking connection.."):
+        time.sleep(2)   
+    if isConnected(connectionID):
+        print(f"{Fore.GREEN}Connection {connectionID} established.{Style.RESET_ALL}")
+    else:
+        print(f"{Fore.RED}Connection {connectionID} failed. Retrying...{Style.RESET_ALL}")
+        count = 0
+        while not isConnected(connectionID) and count < 2:
+            with spinner("Reconnecting.."):
+                time.sleep(2)
+                count+=1
+    return
+
+def printErrorLogs(text):
+    for line in text:
+        print(f"{Fore.RED}Error: {line}{Style.RESET_ALL}")
+    return
 
 for line in lines:
     if line.strip():
