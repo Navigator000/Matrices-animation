@@ -60,7 +60,8 @@ def printErrorLogs(text):
     return
 
 def weatherStation():
-    
+    #todo: do the weather station stuff here
+    return
 
 for line in lines:
     if line.strip():
